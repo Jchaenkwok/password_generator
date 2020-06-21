@@ -1,7 +1,7 @@
 import tkinter as tk
 from random import randint
 
-# List
+# Tuple containing all ascii characters
 ascii_tuple = ("!", "'", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "0", "1", "2", "3", "4", "5",
                "6", "7", "8", "9", ":", ";", "<", "=", ">", "?", "@", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
                "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "[", "\\", "]", "^", "_",
@@ -10,6 +10,7 @@ ascii_tuple = ("!", "'", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", 
 pw = ""
 
 
+# Function to generate password
 def gen_password():
     global pw
     pw = ""
@@ -19,12 +20,14 @@ def gen_password():
     e2.insert(0, pw)
 
 
+# Function to copy the generated password
 def copy_password():
     master.clipboard_clear()
     master.clipboard_append(e2.get())
     master.update()
 
 
+# Function to fix macOS dark mode buttons (not working)
 def fix():
     a = master.winfo_geometry().split('+')[0]
     b = a.split('x')
@@ -33,10 +36,13 @@ def fix():
     master.geometry('%dx%d' % (w + 1, h + 1))
 
 
+# Create tkinter frame
 master = tk.Tk()
 
+# Change frame title
 master.title('Password Generator')
 
+# Create labels
 tk.Label(master,
          text="Password Length").grid(row=0)
 tk.Label(master,
